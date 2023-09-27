@@ -1,14 +1,15 @@
-const NodeRSA = require('node-rsa');
-const fs = require('fs');
+const NodeRSA = require("node-rsa");
+const fs = require("fs");
 
 (async () => {
-  const keyData = fs.readFileSync('private.key', 'utf8');
-  const test = fs.readFileSync('stickers/codediodeio.txt', 'utf8');
+  const keyData = fs.readFileSync("private.key", "utf8");
+  const test = fs.readFileSync("stickers/codediodeio.txt", "utf8");
 
   const key = NodeRSA();
   key.importKey(keyData);
 
-  const decrypted = key.decrypt(test, 'utf8');
+  const decrypted = key.decrypt(test, "utf8");
+  alert("hello");
 
   console.log(decrypted);
 })();
